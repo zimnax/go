@@ -1510,7 +1510,7 @@ func (dh helperEncDriver[T]) encFnLoad(rt reflect.Type, rtid uintptr, tinfos *Ty
 
 	// anything can be an extension except the built-in ones: time, raw and rawext.
 	// ensure we check for these types, then if extension, before checking if
-	// it implementes one of the pre-declared interfaces.
+	// it implements one of the pre-declared interfaces.
 
 	// fi.addrEf = true
 

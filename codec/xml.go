@@ -313,7 +313,7 @@ basically:
 
   map[string]string ==> <map><key>abc</key><value>val</value></map>... or
                         <map key="abc">val</map>... OR
-                        <key1>val1</key1><key2>val2</key2>...                <- PREFERED
+                        <key1>val1</key1><key2>val2</key2>...                <- PREFERRED
   []string  ==> <string>v1</string><string>v2</string>...
   string v1 ==> <string>v1</string>
   bool true ==> <bool>true</bool>
@@ -322,7 +322,7 @@ basically:
 
   F1 map[string]string ==> <F1><key>abc</key><value>val</value></F1>... OR
                            <F1 key="abc">val</F1>... OR
-                           <F1><abc>val</abc>...</F1>                        <- PREFERED
+                           <F1><abc>val</abc>...</F1>                        <- PREFERRED
   F2 []string          ==> <F2>v1</F2><F2>v2</F2>...
   F3 bool              ==> <F3>true</F3>
   ...

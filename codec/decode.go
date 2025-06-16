@@ -171,7 +171,7 @@ func (d *decoder[T]) kInterfaceNaked(f *decFnInfo) (rvn reflect.Value) {
 	d.d.DecodeNaked()
 
 	// We cannot decode non-nil stream value into nil interface with methods (e.g. io.Reader).
-	// Howver, it is possible that the user has ways to pass in a type for a given interface
+	// However, it is possible that the user has ways to pass in a type for a given interface
 	//   - MapType
 	//   - SliceType
 	//   - Extensions
@@ -1822,7 +1822,7 @@ func (dh helperDecDriver[T]) decFnLoad(rt reflect.Type, rtid uintptr, tinfos *Ty
 
 	// anything can be an extension except the built-in ones: time, raw and rawext.
 	// ensure we check for these types, then if extension, before checking if
-	// it implementes one of the pre-declared interfaces.
+	// it implements one of the pre-declared interfaces.
 
 	fi.addrDf = true
 

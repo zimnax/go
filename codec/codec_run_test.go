@@ -3811,56 +3811,6 @@ func doTestDesc(t *testing.T, h Handle, m map[byte]string) {
 	}
 }
 
-// func TestAtomic(t *testing.T) {
-// 	defer testSetup(t, nil)()
-// 	// load, store, load, confirm
-// 	if true {
-// 		var a atomicTypeInfoSlice
-// 		l := a.load()
-// 		if l != nil {
-// 			t.Logf("atomic fail: %T, expected load return nil, received: %v", a, l)
-// 			t.FailNow()
-// 		}
-// 		l = append(l, rtid2ti{})
-// 		a.store(l)
-// 		l = a.load()
-// 		if len(l) != 1 {
-// 			t.Logf("atomic fail: %T, expected load to have length 1, received: %d", a, len(l))
-// 			t.FailNow()
-// 		}
-// 	}
-// 	if true {
-// 		var a atomicRtidFnSlice
-// 		l := a.load()
-// 		if l != nil {
-// 			t.Logf("atomic fail: %T, expected load return nil, received: %v", a, l)
-// 			t.FailNow()
-// 		}
-// 		l = append(l, codecRtidFn{})
-// 		a.store(l)
-// 		l = a.load()
-// 		if len(l) != 1 {
-// 			t.Logf("atomic fail: %T, expected load to have length 1, received: %d", a, len(l))
-// 			t.FailNow()
-// 		}
-// 	}
-// 	if true {
-// 		var a atomicClsErr
-// 		l := a.load()
-// 		if l.err != nil {
-// 			t.Logf("atomic fail: %T, expected load return clsErr = nil, received: %v", a, l.err)
-// 			t.FailNow()
-// 		}
-// 		l.err = io.EOF
-// 		a.store(l)
-// 		l = a.load()
-// 		if l.err != io.EOF {
-// 			t.Logf("atomic fail: %T, expected clsErr = io.EOF, received: %v", a, l.err)
-// 			t.FailNow()
-// 		}
-// 	}
-// }
-
 func TestMapRangeIndex(t *testing.T) {
 	defer testSetup(t, nil)()
 	// t.Skip()
@@ -4046,7 +3996,6 @@ func testUpdateExts(nhs ...testNameBasicHandle) {
 // perform a comparison taking Handle fields into consideration
 func testEqualH(v1, v2 interface{}, h Handle) (err error) {
 	var preferFloat, zeroAsNil, mapKeyAsStr, isJson bool
-	_, _, _, _ = preferFloat, zeroAsNil, mapKeyAsStr, isJson
 	// var nilColAsZeroLen, str2Raw, intAsStr bool
 	bh := testBasicHandle(h)
 	switch x := h.(type) {
@@ -4057,6 +4006,7 @@ func testEqualH(v1, v2 interface{}, h Handle) (err error) {
 		preferFloat = x.PreferFloat
 		isJson = true
 	}
+	_, _, _, _ = preferFloat, zeroAsNil, mapKeyAsStr, isJson
 
 	// create a clone that honors the Handle options
 	// then compare that using reflect.DeepEqual
@@ -4173,3 +4123,53 @@ func testEqualH(v1, v2 interface{}, h Handle) (err error) {
 	}
 	return testEqualOpts(v1, v2, false, testStructsWithStructInfoField)
 }
+
+// func TestAtomic(t *testing.T) {
+// 	defer testSetup(t, nil)()
+// 	// load, store, load, confirm
+// 	if true {
+// 		var a atomicTypeInfoSlice
+// 		l := a.load()
+// 		if l != nil {
+// 			t.Logf("atomic fail: %T, expected load return nil, received: %v", a, l)
+// 			t.FailNow()
+// 		}
+// 		l = append(l, rtid2ti{})
+// 		a.store(l)
+// 		l = a.load()
+// 		if len(l) != 1 {
+// 			t.Logf("atomic fail: %T, expected load to have length 1, received: %d", a, len(l))
+// 			t.FailNow()
+// 		}
+// 	}
+// 	if true {
+// 		var a atomicRtidFnSlice
+// 		l := a.load()
+// 		if l != nil {
+// 			t.Logf("atomic fail: %T, expected load return nil, received: %v", a, l)
+// 			t.FailNow()
+// 		}
+// 		l = append(l, codecRtidFn{})
+// 		a.store(l)
+// 		l = a.load()
+// 		if len(l) != 1 {
+// 			t.Logf("atomic fail: %T, expected load to have length 1, received: %d", a, len(l))
+// 			t.FailNow()
+// 		}
+// 	}
+// 	if true {
+// 		var a atomicClsErr
+// 		l := a.load()
+// 		if l.err != nil {
+// 			t.Logf("atomic fail: %T, expected load return clsErr = nil, received: %v", a, l.err)
+// 			t.FailNow()
+// 		}
+// 		l.err = io.EOF
+// 		a.store(l)
+// 		l = a.load()
+// 		if l.err != io.EOF {
+// 			t.Logf("atomic fail: %T, expected clsErr = io.EOF, received: %v", a, l.err)
+// 			t.FailNow()
+// 		}
+// 	}
+// }

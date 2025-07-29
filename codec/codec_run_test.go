@@ -3971,7 +3971,17 @@ func testUpdateExts(nhs ...testNameBasicHandle) {
 		sx(testSelfExtTyp, 78, SelfExt)
 		sx(testSelfExt2Typ, 79, SelfExt)
 		sx(wrapBytesTyp, 32, &tBytesExt)
-		sx(testUintToBytesTyp, 33, &tUintToBytesExt)
+		
+		// binc, cbor and json are not good fits for this generalized extension.
+		// this is because
+		//  - json: will base64 encode a byte into a string, but we don't know the bytesFmt used
+		//  - ...
+		switch nh.n {
+		case "binc", "cbor", "json":
+		default:
+			sx(testUintToBytesTyp, 33, &tUintToBytesExt)
+		}
+		
 		// Now, add extensions for the type wrapInt64 and wrapBytes,
 		// so we can execute the Encode/Decode Ext paths.
 		if nh.n == "simple" {

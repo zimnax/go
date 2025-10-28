@@ -2869,7 +2869,6 @@ func (d *decoderJsonBytes) interfaceExtConvertAndDecode(v interface{}, ext Inter
 
 	var vv interface{}
 	d.decode(&vv)
-
 	ext.UpdateExt(v, vv)
 
 }
@@ -7028,7 +7027,6 @@ func (d *decoderJsonIO) interfaceExtConvertAndDecode(v interface{}, ext Interfac
 
 	var vv interface{}
 	d.decode(&vv)
-
 	ext.UpdateExt(v, vv)
 
 }

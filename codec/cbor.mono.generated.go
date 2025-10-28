@@ -2843,7 +2843,6 @@ func (d *decoderCborBytes) interfaceExtConvertAndDecode(v interface{}, ext Inter
 
 	var vv interface{}
 	d.decode(&vv)
-
 	ext.UpdateExt(v, vv)
 
 }
@@ -6826,7 +6825,6 @@ func (d *decoderCborIO) interfaceExtConvertAndDecode(v interface{}, ext Interfac
 
 	var vv interface{}
 	d.decode(&vv)
-
 	ext.UpdateExt(v, vv)
 
 }

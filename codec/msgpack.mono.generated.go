@@ -2842,7 +2842,6 @@ func (d *decoderMsgpackBytes) interfaceExtConvertAndDecode(v interface{}, ext In
 
 	var vv interface{}
 	d.decode(&vv)
-
 	ext.UpdateExt(v, vv)
 
 }
@@ -6856,7 +6855,6 @@ func (d *decoderMsgpackIO) interfaceExtConvertAndDecode(v interface{}, ext Inter
 
 	var vv interface{}
 	d.decode(&vv)
-
 	ext.UpdateExt(v, vv)
 
 }

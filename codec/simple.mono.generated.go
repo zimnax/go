@@ -2841,7 +2841,6 @@ func (d *decoderSimpleBytes) interfaceExtConvertAndDecode(v interface{}, ext Int
 
 	var vv interface{}
 	d.decode(&vv)
-
 	ext.UpdateExt(v, vv)
 
 }
@@ -6607,7 +6606,6 @@ func (d *decoderSimpleIO) interfaceExtConvertAndDecode(v interface{}, ext Interf
 
 	var vv interface{}
 	d.decode(&vv)
-
 	ext.UpdateExt(v, vv)
 
 }
